@@ -3,10 +3,7 @@ name: Flutter Andriod Build CI
 # This workflow is triggered on pushes to the repository.
 
 on:
-  push:
-    branches:
-    - master
-    - dev
+  push
     
 # on: push    # Default will running for every branch.
     
