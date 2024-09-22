@@ -3,9 +3,9 @@ from typing import List
 from dotenv import load_dotenv
 import os
 import mysql.connector
-from chromadb import Client
-from chromadb.config import Settings
-from chromadb.api import Collection
+# from chromadb import Client
+# from chromadb.config import Settings
+# from chromadb.api import Collection
 from pprint import pprint
 from math import sin, cos, sqrt, atan2, radians
 
@@ -205,42 +205,42 @@ class MathFunctions:
         
         return self.earthradius * c
 
-class ChromaDBAgent:
-    def __init__(self) -> None:
-        self.client = Client(Settings())
-        self.collection_name = "path_objects"
-        if self.collection_name not in self.client.list_collections():
-            self.collection = self.client.create_collection(self.collection_name)
-        else:
-            self.collection = self.client.get_collection(self.collection_name)
+# class ChromaDBAgent:
+#     def __init__(self) -> None:
+#         self.client = Client(Settings())
+#         self.collection_name = "path_objects"
+#         if self.collection_name not in self.client.list_collections():
+#             self.collection = self.client.create_collection(self.collection_name)
+#         else:
+#             self.collection = self.client.get_collection(self.collection_name)
     
-    def insertpathobject(self, pathobjectid: str, coordinates):
-        vectorobject = {
-            "id": pathobjectid,
-            "vector": coordinates
-        }
+#     def insertpathobject(self, pathobjectid: str, coordinates):
+#         vectorobject = {
+#             "id": pathobjectid,
+#             "vector": coordinates
+#         }
         
-        self.collection.upsert(vectorobject["id"], vectorobject["vector"])
+#         self.collection.upsert(vectorobject["id"], vectorobject["vector"])
     
-    def getnearestneighbors(self, coordinates, kval=5):
-        return self.collection.query(coordinates, n_results=kval)['ids']
+#     def getnearestneighbors(self, coordinates, kval=5):
+#         return self.collection.query(coordinates, n_results=kval)['ids']
 
-    def clearindex(self):
-        self.client.delete_collection(self.collection_name)
-        self.collection = self.client.create_collection(self.collection_name)
+#     def clearindex(self):
+#         self.client.delete_collection(self.collection_name)
+#         self.collection = self.client.create_collection(self.collection_name)
     
-    # select and display all the vectors in the collection
-    def getallvectors(self):
-        return self.collection.get()['ids']
+#     # select and display all the vectors in the collection
+#     def getallvectors(self):
+#         return self.collection.get()['ids']
     
-    def numberofvectors(self):
-        return len(self.collection.get()['ids'])
+#     def numberofvectors(self):
+#         return len(self.collection.get()['ids'])
 
-    def whatallcollectionhas(self):
-        return dir(self.collection)
+#     def whatallcollectionhas(self):
+#         return dir(self.collection)
 
-    def whatallclienthas(self):
-        return dir(self.client)
+#     def whatallclienthas(self):
+#         return dir(self.client)
 
 
 if __name__ == "__main__":
