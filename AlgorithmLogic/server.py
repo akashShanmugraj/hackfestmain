@@ -94,7 +94,7 @@ def addrequest():
         latitude = node["xposition"]
         longitude = node["yposition"]
         action = "PICKUP" if quantity > 0 else "DROP"
-        worddesc = gmagent.geocodecoordinatestoaddress([latitude, longitude])
+        worddesc = "Data N/A"
         databaseobject.create_node(
             node_id=randomid,
             resource_id=resource_id,
@@ -371,7 +371,7 @@ def setrandom():
         latitude = node["xposition"]
         longitude = node["yposition"]
         action = "PICKUP" if quantity > 0 else "DROP"
-        worddesc = gmagent.geocodecoordinatestoaddress([latitude, longitude])
+        worddesc = "Data N/A"
         databaseobject.create_node(
             node_id=randomid,
             resource_id=resource_id,
