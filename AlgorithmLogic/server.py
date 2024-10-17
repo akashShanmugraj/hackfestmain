@@ -188,7 +188,7 @@ def serveassortment():
                     "latitude": float(node_obj[5]),
                     "longitude": float(node_obj[6]),
                     "itemname": databaseobject.getresourcename(node_obj[1]).rstrip(),
-                    "inwords": databaseobject.getworddescription(node["nodeid"]).rstrip(),
+                    "inwords": "Data N/A",
                 }
             )
         output["paths"][str(i)] = {
