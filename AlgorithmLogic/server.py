@@ -25,7 +25,7 @@ centralsystemobject.addrequest(
 centralsystemobject.addrequest(
     Node(x_pos=42.646984, y_pos=-73.789450, item="Flashlight", quantity=-1)
 )
-gmagent = GoogleAPI()
+# gmagent = GoogleAPI()
 randomagent = Random()
 app = Flask(__name__)
 
