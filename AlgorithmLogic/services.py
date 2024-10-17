@@ -651,20 +651,7 @@ class GoogleAPI:
         return output
 
     def geocodecoordinatestoaddress(self, coordinatelist: List[float]):
-        endpoint = "https://maps.googleapis.com/maps/api/geocode/json"
-        print("Attempting to geocode coordinates", coordinatelist)
-
-        params = {
-            "key": self.api_key,
-            "latlng": f"{coordinatelist[0]},{coordinatelist[1]}",
-        }
-
-        response = requests.get(endpoint, params=params)
-        if response.status_code != 200:
-            raise Exception(f"Error making request: {response.status_code}")
-
-        print(f"response is {response.json()}")
-        return response.json()["results"][0]["formatted_address"]
+        return "Data N/A"
 
 
 class MathFunctions:
